@@ -67,6 +67,10 @@ WHERE licenses.software_name = 'MS Word'
 ORDER BY users.name;
 ```
 
+Le code sql ci-dessus fonctionnait comme prévu. Il permettait d'extraire l'année de la table des utilisateurs et permettait également de joindre les licenses des utilisateurs avec le logiciel pour lequel le nom était MS Word. Finalement, tous les résultats sont triés (ordonnés) en fonction des noms des utilisateurs. Voici le résultat obtenu:
+
+![Partie_B_1](Images/question_B1_a.png)
+
 b) [4 points]
 ```sql
 SELECT name,
@@ -75,6 +79,9 @@ FROM softwares
 WHERE released_date < '2018-01-01'
 ORDER BY released_date ASC;
 ```
+Pour cette partie, le code sql ci-dessus sélectionner deux colonnes (name et released_date) de la table _softwares_ avec une condition particulière: Il fallait que la date de distribution du logiciel ce soit faite avant le 01 janvier 2018. De plus, tous les résultats étaient ordonnés par date de distribution en order croissant(ascendant). Voici le résultat obtenu:
+
+![Partie_B_2](Images/question_B1_b.png)
 
 c) [7 points]
 ```sql
@@ -90,3 +97,20 @@ LEFT JOIN licenses ON licenses.user_id = id
 GROUP BY name
 ORDER BY num DESC;
 ```
+Après avoir fait plusieurs recherches sur internet, j’ai découvert que la raison pour laquelle cette requête ne fonctionnait pas était dû au fait que la ligne à laquelle ‘’GROUP BY NAME’’ était écrit devait également contenir le user_2019.id afin de pouvoir s’assurer que la requête s’exécute comme prévu. Voici donc le nouveau code modifié:
+```sql
+WITH users_2019 (id, name) AS
+ (SELECT *
+ FROM users
+ WHERE join_date BETWEEN '2019-01-01' AND '2019-12-31')
+SELECT id,
+ name,
+ count(licenses.access_code) AS num
+FROM users_2019
+LEFT JOIN licenses ON licenses.user_id = id
+GROUP BY name, users_2019.id
+ORDER BY num DESC;
+```
+De plus, voici la sortie que j'ai obtenu ensuite:
+
+![Partie_B_3](Images/question_B1_c.png)
