@@ -122,3 +122,63 @@ a) [3 points] Trouvez les noms de tous les utilisateurs qui se sont inscrits ava
 SELECT NAME FROM users WHERE join_date<'2020-01-01';
 ```
 Voici ainsi la sortie obtenue:
+
+![Partie_B2_a](Images/question_B2_a.png)
+
+b)	[5 points] Trouvez le nombre de licences logicielles de chaque utilisateur (même celles sans licence). Triez les résultats par nombre de licences (du plus au moins), puis par nom (A - Z).
+```sql
+SELECT users.name, count(licenses.user_id) as number_of_licenses
+from users
+left join licenses on licenses.user_id = users.id
+group by users.name
+order by number_of_licenses desc, name asc;
+```
+
+Sortie obtenue:
+
+![Partie_B2_b](Images/question_B2_b.png)
+
+c)	[5 points] Insérez des données dans la base de données pour démontrer que les résultats sont triés correctement en (b).
+
+Insertion de données:
+
+```sql
+INSERT INTO users (id, name, join_date)
+VALUES
+ (52, 'andrew2', '2018-02-01'),
+ (53, 'hayden2', '2019-02-02'),
+ (54, 'august2', '2020-02-02'),
+ (55, 'ayana2', '2020-02-01');
+ 
+INSERT INTO softwares (name, version, released_date)
+VALUES
+ ('Excel', '2010', '2011-02-20'),
+ ('Edge', '2006', '2018-02-01'),
+ ('Python', '3.8', '2016-07-15');
+ 
+INSERT INTO licenses (user_id, software_name, access_code)
+VALUES
+ (52, 'Python', 'abc1234'),
+ (53, 'Edge', 'def4564'),
+ (54, 'Excel', 'hij7894'),
+ (55, 'Python', 'x1y2z34'),
+ (49, 'Sketch', 'x2y3z44');
+```
+
+Sortie obtenue:
+
+![Partie_B_2_c](Images/question_B2_c.png)
+
+d)	[2 points] Mettez à jour la version de sketch à la version « 51 » (publié le 1 janvier 2020).
+
+Code sql:
+```sql
+update softwares
+set version = '51',
+released_date = '2020-01-01'
+where name = 'Sketch';
+```
+
+Résultat obtenu:
+
+!
