@@ -114,3 +114,11 @@ ORDER BY num DESC;
 De plus, voici la sortie que j'ai obtenu ensuite:
 
 ![Partie_B_3](Images/question_B1_c.png)
+
+### B2. [15 points] Écriture de requêtes SQL
+a) [3 points] Trouvez les noms de tous les utilisateurs qui se sont inscrits avant le 1er janvier
+2020
+```sql
+SELECT NAME FROM users WHERE join_date<'2020-01-01';
+```
+Voici ainsi la sortie obtenue:
