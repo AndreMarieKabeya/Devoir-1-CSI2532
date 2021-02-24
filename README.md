@@ -186,12 +186,12 @@ Résultat obtenu:
 
 a) [5 points] Ajoutez la version du logiciel à la table des licences.
 ```sql
-alter table licenses
-add COLUMN software_version VARCHAR(200);
+ALTER TABLE licenses 
+ADD COLUMN software_version VARCHAR(200) 
+REFERENCES softwares (name);
 ```
-Description du résultat à partir de psql:
-
-![Partie_B_3_a](Images/question_B3_a.png)
+Résultats:
+![Partie_B_3_a](Images/question_B3_a_new.png)
 
 b) [5 points] Mettez à jour la table des softwares pour inclure le nom ET la version comme clé
 primaire.
