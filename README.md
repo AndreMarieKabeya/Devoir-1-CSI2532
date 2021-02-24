@@ -180,5 +180,4 @@ where name = 'Sketch';
 ```
 
 Résultat obtenu:
-
-!
+![Partie_B_2_d](Images/question_B2_d.png)
