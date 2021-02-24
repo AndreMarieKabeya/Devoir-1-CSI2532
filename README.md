@@ -181,3 +181,28 @@ where name = 'Sketch';
 
 Résultat obtenu:
 ![Partie_B_2_d](Images/question_B2_d.png)
+
+### B3. [30 marks] Mise à jour du schéma SQL
+
+a) [5 points] Ajoutez la version du logiciel à la table des licences.
+```sql
+alter table licenses
+add COLUMN software_version VARCHAR(200);
+```
+Description du résultat à partir de psql:
+
+![Partie_B_3_a](Images/question_B3_a.png)
+
+b) [5 points] Mettez à jour la table des softwares pour inclure le nom ET la version comme clé
+primaire.
+
+c) [10 points] Mettez à jour le tableau des licences pour permettre aux utilisateurs d'avoir
+plusieurs versions du même logiciel. Pour démontrer cela, ajoutez Sketch 52 à l'utilisateur
+"andrew" avec le code d'accès "xxxyyy111". Ne codez pas directement avec l'ID de utilisateur,
+cela devrait fonctionner pour n'importe quelle instances de la base de données avec un
+utilisateur nommé "andrew".
+
+d) [10 points] Sketch propose une promotion (code d'accès "1monthfree") pour la version 52.
+Donnez cette licence à tous ceux qui ne l'ont pas encore, leur permettant de conserver toute
+ancienne version qu'ils pourraient avoir. Ne codez pas directement la liste des utilisateurs, cela
+devrait fonctionner pour n'importe quelle instances de la base de données.
