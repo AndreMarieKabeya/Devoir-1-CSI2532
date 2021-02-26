@@ -47,10 +47,14 @@ spécifier les types d'attributs (c'est-à-dire le domaine).
 
 a) [7 points] Trouvez tous les espaces de bureau à Ottawa qui sont disponibles le 2 mars 2020
 
+![Partie_A_3_a](Images/question_A3_a.png)
+
 
 b) [8 points] Trouvez tous les utilisateurs (nom et email) et les détails de la propriété (nom et
 ville) et les informations de location (date et coût quotidien) de toutes les bureaux loués du mois
 de janvier 2020.
+
+![Partie_A_3_b](Images/question_A3_b.png)
 
 
 ## Partie B [60 points]: SQL
@@ -195,12 +199,25 @@ Résultats:
 
 b) [5 points] Mettez à jour la table des softwares pour inclure le nom ET la version comme clé
 primaire.
+```sql
+BEGIN;
+ALTER TABLE licenses DROP CONSTRAINT licenses_software_version_fkey;
+ALTER TABLE softwares DROP CONSTRAINT softwares_pkey;
+ALTER TABLE softwares ADD PRIMARY KEY (name, version);
+ALTER TABLE licenses ADD FOREIGN KEY(software_name, software_version) REFERENCES softwares(name, version);
+COMMIT;
+```
+Résultat à partir de psql:
+![Partie_B_3_b](Images/question_B3_b.png)
 
 c) [10 points] Mettez à jour le tableau des licences pour permettre aux utilisateurs d'avoir
 plusieurs versions du même logiciel. Pour démontrer cela, ajoutez Sketch 52 à l'utilisateur
 "andrew" avec le code d'accès "xxxyyy111". Ne codez pas directement avec l'ID de utilisateur,
 cela devrait fonctionner pour n'importe quelle instances de la base de données avec un
 utilisateur nommé "andrew".
+```sql
+
+```
 
 d) [10 points] Sketch propose une promotion (code d'accès "1monthfree") pour la version 52.
 Donnez cette licence à tous ceux qui ne l'ont pas encore, leur permettant de conserver toute
