@@ -40,7 +40,7 @@ Modélisez le système ci-dessus à l'aide d'un diagramme Entité-Relation. Vous
 entités, les relations, la cardinalité, la participation et les attributs. Vous n'avez pas besoin de
 spécifier les types d'attributs (c'est-à-dire le domaine).
 
-![Partie_A_2](Images/question_A2.png)
+![Partie_A_2](Images/question_A2_new.png)
 
 
 ### A3 [15 points]: Algèbre relationnelle
