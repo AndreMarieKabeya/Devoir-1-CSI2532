@@ -47,14 +47,14 @@ spécifier les types d'attributs (c'est-à-dire le domaine).
 
 a) [7 points] Trouvez tous les espaces de bureau à Ottawa qui sont disponibles le 2 mars 2020
 
-![Partie_A_3_a](Images/question_A3_a.png)
+![Partie_A_3_a](Images/question_A3_a_new.png)
 
 
 b) [8 points] Trouvez tous les utilisateurs (nom et email) et les détails de la propriété (nom et
 ville) et les informations de location (date et coût quotidien) de toutes les bureaux loués du mois
 de janvier 2020.
 
-![Partie_A_3_b](Images/question_A3_b.png)
+![Partie_A_3_b](Images/question_A3_b_new.png)
 
 
 ## Partie B [60 points]: SQL
