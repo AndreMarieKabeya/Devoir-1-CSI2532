@@ -206,14 +206,12 @@ b) [5 points] Mettez à jour la table des softwares pour inclure le nom ET la ve
 primaire.
 ```sql
 BEGIN;
-ALTER TABLE licenses DROP CONSTRAINT licenses_software_version_fkey;
 ALTER TABLE softwares DROP CONSTRAINT softwares_pkey;
 ALTER TABLE softwares ADD PRIMARY KEY (name, version);
-ALTER TABLE licenses ADD FOREIGN KEY(software_name, software_version) REFERENCES softwares(name, version);
 COMMIT;
 ```
 Résultat à partir de psql:
-![Partie_B_3_b](Images/question_B3_b.png)
+![Partie_B_3_b](Images/question_B3_b_new.png)
 
 c) [10 points] Mettez à jour le tableau des licences pour permettre aux utilisateurs d'avoir
 plusieurs versions du même logiciel. Pour démontrer cela, ajoutez Sketch 52 à l'utilisateur
