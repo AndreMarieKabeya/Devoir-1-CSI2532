@@ -219,8 +219,29 @@ plusieurs versions du même logiciel. Pour démontrer cela, ajoutez Sketch 52 à
 cela devrait fonctionner pour n'importe quelle instances de la base de données avec un
 utilisateur nommé "andrew".
 ```sql
-
+BEGIN;
+ALTER TABLE licenses
+DROP CONSTRAINT licenses_user_id_fkey;
+ALTER TABLE licenses
+DROP CONSTRAINT licenses_pkey;
+ALTER TABLE licenses
+ADD PRIMARY KEY (user_id,software_name,software_version);
+ALTER TABLE licenses
+ADD FOREIGN KEY (user_id) REFERENCES users;
+ALTER TABLE licenses
+ADD FOREIGN KEY (software_name,software_version) REFERENCES softwares;
+COMMIT;
 ```
+Ensuite, code pour ajouter l'utilisateur demandé:
+```sql
+INSERT INTO licenses (user_id, software_name,software_version,access_code)
+SELECT id,'Sketch','52','xxxyyy111'
+FROM users
+WHERE users.name='andrew';
+```
+
+Résultat:
+![Partie_B_3_c](Images/question_B3_c.png)
 
 d) [10 points] Sketch propose une promotion (code d'accès "1monthfree") pour la version 52.
 Donnez cette licence à tous ceux qui ne l'ont pas encore, leur permettant de conserver toute
