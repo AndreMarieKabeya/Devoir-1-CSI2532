@@ -249,7 +249,12 @@ ancienne version qu'ils pourraient avoir. Ne codez pas directement la liste des 
 devrait fonctionner pour n'importe quelle instances de la base de données.
 
 ```sql
-
+INSERT INTO licenses (user_id,software_name,software_version,access_code)
+SELECT id, 'Sketch','52','1monthfree'
+FROM users
+WHERE id NOT IN
+(SELECT user_id from licenses
+WHERE software_version ='52' and software_name='Sketch');
 ```
 Image du résultat obtenu:
-![Partie_B_3_d](Images/question_B3_d.png)
+![Partie_B_3_d](Images/question_B3_d_new.png)
