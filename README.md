@@ -247,3 +247,9 @@ d) [10 points] Sketch propose une promotion (code d'accès "1monthfree") pour la
 Donnez cette licence à tous ceux qui ne l'ont pas encore, leur permettant de conserver toute
 ancienne version qu'ils pourraient avoir. Ne codez pas directement la liste des utilisateurs, cela
 devrait fonctionner pour n'importe quelle instances de la base de données.
+
+```sql
+
+```
+Image du résultat obtenu:
+![Partie_B_3_d](Images/question_B3_d.png)
